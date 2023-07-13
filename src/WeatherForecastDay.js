@@ -12,12 +12,14 @@ export default function WeatherForecastDay(props) {
 		return `${temperature}°`;
 	}
 
+	// Function to format the day
 	function day() {
 		let date = new Date(props.data.dt * 1000);
 		let day = date.getDay();
 
 		let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+		// Matches day to array of days
 		return days[day];
 	}
 

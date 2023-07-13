@@ -1,9 +1,29 @@
 .Weather {
-	font-family: arial, sans-serif;
+	font-family: monospace, sans-serif;
 	border: 1px solid #dadde1;
 	padding: 16px;
 	border-radius: 4px;
-	color: rgb(135, 135, 135);
+	color: rgb(63, 63, 63);
+	background-color: antiquewhite;
+}
+
+.Weather .compass {
+	color: pink;
+	
+	font-size: 28px;
+	padding: none;
+	transform: rotate(0.5turn);
+	transition: all 200ms ease-in-out;
+
+}
+
+.Weather .compass:hover {
+	transform: rotate(1turn);
+	cursor: pointer;
+}
+
+.Weather .btn {
+	border: 3px solid red;
 }
 
 .Weather h1 {

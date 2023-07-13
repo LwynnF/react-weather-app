@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function formattedDate(props) {
-	console.log(props.date);
+
 
 	let days = [
 		"Sunday",
@@ -13,6 +13,7 @@ export default function formattedDate(props) {
 		"Saturday",
 	];
 
+	// From the array of days, get a day which matches the integer of the current day
 	let day = days[props.date.getDay()];
 	let hours = props.date.getHours();
 	let minutes = props.date.getMinutes();

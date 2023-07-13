@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCompass } from "@fortawesome/free-solid-svg-icons";
 
 import "./Weather.css";
 import WeatherForecast from "./WeatherForecast";
@@ -9,6 +11,8 @@ import WeatherInfo from "./WeatherInfo";
 export default function Weather(props) {
 	const [weatherData, setWeatherData] = useState({ ready: false });
 	const [city, setCity] = useState(props.defaultCity);
+
+	// Function to handle API response and update weatherData state
 	function handleResponse(response) {
 		setWeatherData({
 			ready: true,
@@ -23,12 +27,10 @@ export default function Weather(props) {
 		});
 	}
 
+	// AMake API call with searched city and retrieve weather data
 	function search() {
-		// AMake API call with city
 		const apiKey = "4c9b53e4f8f5eb00df5915bdca340605";
-
 		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
 		axios.get(apiUrl).then(handleResponse);
 	}
 
@@ -37,16 +39,18 @@ export default function Weather(props) {
 		search();
 	}
 
+	// Function to handle city input change and update the city state
 	function handleCityChange(event) {
 		setCity(event.target.value);
 	}
 
+	// Render weather information and forecast if weatherData is ready
 	if (weatherData.ready) {
 		return (
 			<div className="Weather">
 				<form onSubmit={handleSubmit}>
 					<div className="row">
-						<div className="col-9">
+						<div className="col-8">
 							<input
 								type="search"
 								placeholder="Enter a city..."
@@ -54,6 +58,9 @@ export default function Weather(props) {
 								autoFocus="on"
 								onChange={handleCityChange}
 							/>
+						</div>
+						<div className="col-1 compass">
+							<FontAwesomeIcon icon={faCompass} />
 						</div>
 						<div className="col-3">
 							<input
