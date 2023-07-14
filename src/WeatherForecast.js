@@ -31,7 +31,7 @@ export default function WeatherForecast(props) {
 		axios.get(apiUrl).then(handleResponse);
 	}
 
-	// Checks whether loaded state variable is true, when loaded is false load function is called to make the API call 
+	// Checks whether loaded state variable is true, when loaded is false load function is called to make the API call
 	if (loaded) {
 		return (
 			<div className="WeatherForecast">
