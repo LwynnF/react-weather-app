@@ -15,7 +15,7 @@ export default function BackgroundImage({ city, setBackgroundImage }) {
 		}
 	}, [city]);
 
-	// takes the unsplash api response and calls setbackgroundimage
+	// takes the unsplash api response choosing a photo using a random number and calls setbackgroundimage
 function handleResponse(response) {
 	if (response.data.results.length > 0) {
 		const randomIndex = Math.floor(

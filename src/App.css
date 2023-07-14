@@ -1,7 +1,8 @@
 .App {
 	font-family: monospace, sans-serif;
+	width: 100vh;
+	height: 100vh;
 }
-
 
 .App {
 	max-width: 600px;
@@ -12,4 +13,3 @@
 	font-size: 12px;
 	margin: 20px 0;
 }
-

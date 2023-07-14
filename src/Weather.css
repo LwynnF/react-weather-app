@@ -7,23 +7,11 @@
 	background-color: antiquewhite;
 }
 
-.Weather .compass {
-	color: pink;
-	
-	font-size: 28px;
-	padding: none;
-	transform: rotate(0.5turn);
-	transition: all 200ms ease-in-out;
-
-}
-
-.Weather .compass:hover {
-	transform: rotate(1turn);
-	cursor: pointer;
-}
 
 .Weather .btn {
-	border: 3px solid red;
+	border: 3px solid #fff;
+	color: #fff;
+	background-color: #c0e3fe;
 }
 
 .Weather h1 {

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCompass } from "@fortawesome/free-solid-svg-icons";
 
 import "./Weather.css";
 import WeatherForecast from "./WeatherForecast";
@@ -54,9 +52,7 @@ export default function Weather({ onCityChange }) {
 								onChange={(event) => setCity(event.target.value)}
 							/>
 						</div>
-						<div className="col-1 compass">
-							<FontAwesomeIcon icon={faCompass} />
-						</div>
+
 						<div className="col-3">
 							<input
 								type="submit"
