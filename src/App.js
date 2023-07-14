@@ -12,7 +12,15 @@ export default function App() {
 	}
 
 	return (
-		<div className="App">
+		<div
+			className="App"
+			style={{
+				backgroundImage: `url(${backgroundImage})`,
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+				backgroundRepeat: "no-repeat",
+			}}
+		>
 			<div className="container">
 				<Weather onCityChange={handleCityChange} />
 
