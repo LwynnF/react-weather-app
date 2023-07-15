@@ -26,15 +26,12 @@ export default function Weather({ onCityChange }) {
 
 	// AMake API call with searched city and retrieve weather data
 
-	useEffect(() => {
-		const apiKey = "4c9b53e4f8f5eb00df5915bdca340605";
-		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-		axios.get(apiUrl).then(handleResponse);
-	}, [city]);
-
 	function handleSubmit(event) {
 		event.preventDefault();
 		onCityChange(city);
+		const apiKey = "4c9b53e4f8f5eb00df5915bdca340605";
+		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+		axios.get(apiUrl).then(handleResponse);
 	}
 
 	// Render weather information and forecast if weatherData is ready
@@ -67,6 +64,7 @@ export default function Weather({ onCityChange }) {
 			</div>
 		);
 	} else {
+		handleSubmit({ preventDefault: () => {} });
 		return "Loading...";
 	}
 }
