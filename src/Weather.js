@@ -41,9 +41,7 @@ export default function Weather({ onCityChange }) {
 
 	// Render weather information and forecast if weatherData is ready
 	if (weatherData.ready) {
-		const localTime = moment
-			.unix(weatherData.date.getTime() / 1000 + weatherData.timezoneOffset)
-			.format("HH:mm");
+
 
 		return (
 			<div className="Weather">
