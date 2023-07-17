@@ -13,15 +13,15 @@ export default function App() {
 
 	return (
 		<div
-			className="App"
+			className="weatherApp"
 			style={{
 				backgroundImage: `url(${backgroundImage})`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
-				backgroundRepeat: "no-repeat",
+				height: "100vh",
 			}}
 		>
-			<div className="container">
+			<div className="containerApp">
 				<Weather onCityChange={handleCityChange} />
 
 				<BackgroundImage
@@ -30,7 +30,7 @@ export default function App() {
 					setBackgroundImage={setBackgroundImage}
 				/>
 			</div>
-			<footer>
+			<footer className="codedBy">
 				This was coded by wynn.codes{" "}
 				<a
 					href="https://github.com/LwynnF/react-weather-app"

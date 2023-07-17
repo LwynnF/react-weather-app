@@ -1,8 +1,6 @@
 import React from "react";
 
 export default function formattedDate(props) {
-
-
 	let days = [
 		"Sunday",
 		"Monday",
@@ -13,8 +11,25 @@ export default function formattedDate(props) {
 		"Saturday",
 	];
 
+	let months = [
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December",
+	];
+
 	// From the array of days, get a day which matches the integer of the current day
 	let day = days[props.date.getDay()];
+	let date = props.date.getDate();
+	let month = months[props.date.getMonth()];
 	let hours = props.date.getHours();
 	let minutes = props.date.getMinutes();
 
@@ -27,7 +42,7 @@ export default function formattedDate(props) {
 
 	return (
 		<div>
-			{day} {hours}:{minutes}
+			{day} {date} {month} 
 		</div>
 	);
 }

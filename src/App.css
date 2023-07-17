@@ -1,15 +1,18 @@
-.App {
+.backgroundImage {
+	background-size: cover;
+}
+
+.weatherApp {
 	font-family: monospace, sans-serif;
-	width: 100vh;
-	height: 100vh;
 }
 
-.App {
-	max-width: 600px;
+.containerApp {
 	margin: 30px auto;
+	max-width: 700px;
 }
 
-.App footer {
-	font-size: 12px;
-	margin: 20px 0;
+.weatherApp footer {
+	font-size: 14px;
+	color: antiquewhite;
+	margin: 0 auto;
 }

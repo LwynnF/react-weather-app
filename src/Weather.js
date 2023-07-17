@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment-timezone";
 
 import "./Weather.css";
 import WeatherForecast from "./WeatherForecast";
@@ -21,11 +22,11 @@ export default function Weather({ onCityChange }) {
 			wind: response.data.wind.speed,
 			date: new Date(response.data.dt * 1000),
 			icon: response.data.weather[0].icon,
+			timezoneOffset: response.data.timezone,
 		});
 	}
 
-	// AMake API call with searched city and retrieve weather data
-
+	// Make API call with searched city and retrieve weather data
 	function handleSubmit(event) {
 		event.preventDefault();
 		onCityChange(city);
@@ -34,8 +35,16 @@ export default function Weather({ onCityChange }) {
 		axios.get(apiUrl).then(handleResponse);
 	}
 
+	useEffect(() => {
+		handleSubmit({ preventDefault: () => {} });
+	}, []); // Call API on initial render
+
 	// Render weather information and forecast if weatherData is ready
 	if (weatherData.ready) {
+		const localTime = moment
+			.unix(weatherData.date.getTime() / 1000 + weatherData.timezoneOffset)
+			.format("HH:mm");
+
 		return (
 			<div className="Weather">
 				<form onSubmit={handleSubmit}>
@@ -59,12 +68,12 @@ export default function Weather({ onCityChange }) {
 						</div>
 					</div>
 				</form>
+				<p>Local Time: {localTime}</p>
 				<WeatherInfo data={weatherData} />
 				<WeatherForecast coordinates={weatherData.coordinates} />
 			</div>
 		);
 	} else {
-		handleSubmit({ preventDefault: () => {} });
 		return "Loading...";
 	}
 }
